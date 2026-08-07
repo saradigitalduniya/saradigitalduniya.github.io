@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="posGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E40AF" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F97316" />
+      <stop offset="100%" stop-color="#FF5722" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#posGrad)"/>
+  <rect x="24" y="24" width="80" height="80" rx="16" fill="#ffffff" opacity="0.95"/>
+  <!-- Restaurant Utensils & POS Monitor -->
+  <path d="M40 40 L88 40 L88 72 L40 72 Z" fill="url(#posGrad)"/>
+  <rect x="56" y="72" width="16" height="12" fill="#1E40AF"/>
+  <rect x="48" y="84" width="32" height="6" rx="3" fill="#F97316"/>
+  <!-- Chef Hat / Fork Spoon SVG Icon Overlay -->
+  <circle cx="64" cy="56" r="10" fill="url(#orangeGrad)"/>
+  <path d="M60 56 L68 56 M64 52 L64 60" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+</svg>
