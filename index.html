@@ -191,6 +191,9 @@
             <button onclick="openHelpVideosModal()" class="px-3 py-2 rounded-lg hover:text-brand-deep hover:bg-slate-100 transition-colors flex items-center gap-1.5">
               <i data-lucide="play-circle" class="w-4 h-4 text-amber-500"></i> Help Videos
             </button>
+            <button onclick="!currentUser ? openAuthModal('login') : openAccountModal('dashboard')" class="px-3 py-2 rounded-lg hover:text-brand-deep hover:bg-slate-100 transition-colors flex items-center gap-1.5">
+              <i data-lucide="user" class="w-4 h-4 text-blue-500"></i> My Account
+            </button>
           </nav>
 
           <!-- SEARCH & USER ACCOUNT ACTIONS -->
