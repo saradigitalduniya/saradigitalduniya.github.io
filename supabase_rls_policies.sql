@@ -65,11 +65,11 @@ CREATE POLICY "Anyone can insert messages" ON messages FOR INSERT WITH CHECK (tr
 -- -----------------------------------------------------------------------------
 -- Anyone can SELECT published products
 DROP POLICY IF EXISTS "Anyone can view products" ON products;
-CREATE POLICY "Anyone can view products" ON products FOR SELECT USING (published = true);
+CREATE POLICY "Anyone can view products" ON products FOR SELECT USING (true);
 
 -- Anyone can SELECT published services
 DROP POLICY IF EXISTS "Anyone can view services" ON services;
-CREATE POLICY "Anyone can view services" ON services FOR SELECT USING (published = true);
+CREATE POLICY "Anyone can view services" ON services FOR SELECT USING (true);
 
 -- Anyone can SELECT categories
 DROP POLICY IF EXISTS "Anyone can view categories" ON categories;
