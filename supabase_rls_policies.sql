@@ -12,39 +12,29 @@ ALTER TABLE services ENABLE ROW LEVEL SECURITY;
 -- -----------------------------------------------------------------------------
 -- Users can SELECT their own profile
 DROP POLICY IF EXISTS "Users can view own profile" ON profiles;
-CREATE POLICY "Users can view own profile" 
-ON profiles FOR SELECT 
-USING (auth.uid() = id);
+CREATE POLICY "Users can view own profile" ON profiles FOR SELECT USING (auth.uid() = id);
 
 -- Users can UPDATE their own profile
 DROP POLICY IF EXISTS "Users can update own profile" ON profiles;
-CREATE POLICY "Users can update own profile" 
-ON profiles FOR UPDATE 
-USING (auth.uid() = id);
+CREATE POLICY "Users can update own profile" ON profiles FOR UPDATE USING (auth.uid() = id);
 
 -- -----------------------------------------------------------------------------
 -- ORDERS
 -- -----------------------------------------------------------------------------
 -- Users can SELECT their own orders
 DROP POLICY IF EXISTS "Users can view own orders" ON orders;
-CREATE POLICY "Users can view own orders" 
-ON orders FOR SELECT 
-USING (auth.uid() = user_id);
+CREATE POLICY "Users can view own orders" ON orders FOR SELECT USING (auth.uid() = user_id);
 
 -- Users can INSERT their own orders
 DROP POLICY IF EXISTS "Users can create own orders" ON orders;
-CREATE POLICY "Users can create own orders" 
-ON orders FOR INSERT 
-WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can create own orders" ON orders FOR INSERT WITH CHECK (auth.uid() = user_id);
 
 -- -----------------------------------------------------------------------------
 -- ORDER ITEMS
 -- -----------------------------------------------------------------------------
 -- Users can SELECT their own order items
 DROP POLICY IF EXISTS "Users can view own order items" ON order_items;
-CREATE POLICY "Users can view own order items" 
-ON order_items FOR SELECT 
-USING (
+CREATE POLICY "Users can view own order items" ON order_items FOR SELECT USING (
   EXISTS (
     SELECT 1 FROM orders 
     WHERE orders.id = order_items.order_id 
@@ -54,9 +44,7 @@ USING (
 
 -- Users can INSERT their own order items
 DROP POLICY IF EXISTS "Users can create own order items" ON order_items;
-CREATE POLICY "Users can create own order items" 
-ON order_items FOR INSERT 
-WITH CHECK (
+CREATE POLICY "Users can create own order items" ON order_items FOR INSERT WITH CHECK (
   EXISTS (
     SELECT 1 FROM orders 
     WHERE orders.id = order_items.order_id 
@@ -69,30 +57,20 @@ WITH CHECK (
 -- -----------------------------------------------------------------------------
 -- Anyone (anon and authenticated) can INSERT a message
 DROP POLICY IF EXISTS "Anyone can insert messages" ON messages;
-CREATE POLICY "Anyone can insert messages" 
-ON messages FOR INSERT 
-WITH CHECK (true);
-
+CREATE POLICY "Anyone can insert messages" ON messages FOR INSERT WITH CHECK (true);
 -- No public SELECT policy for messages (only admins via service_role or DB console)
 
 -- -----------------------------------------------------------------------------
 -- PUBLIC CATALOG (Products, Services, Categories)
 -- -----------------------------------------------------------------------------
--- Anyone can SELECT products
+-- Anyone can SELECT published products
 DROP POLICY IF EXISTS "Anyone can view products" ON products;
-CREATE POLICY "Anyone can view products" 
-ON products FOR SELECT 
-USING (true);
+CREATE POLICY "Anyone can view products" ON products FOR SELECT USING (published = true);
 
--- Anyone can SELECT services
+-- Anyone can SELECT published services
 DROP POLICY IF EXISTS "Anyone can view services" ON services;
-CREATE POLICY "Anyone can view services" 
-ON services FOR SELECT 
-USING (true);
+CREATE POLICY "Anyone can view services" ON services FOR SELECT USING (published = true);
 
 -- Anyone can SELECT categories
 DROP POLICY IF EXISTS "Anyone can view categories" ON categories;
-CREATE POLICY "Anyone can view categories" 
-ON categories FOR SELECT 
-USING (true);
-
+CREATE POLICY "Anyone can view categories" ON categories FOR SELECT USING (true);
