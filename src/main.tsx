@@ -2,9 +2,20 @@ import { createClient } from '@supabase/supabase-js';
 
 // @ts-ignore
 let supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-if (supabaseUrl && !supabaseUrl.startsWith('http')) { supabaseUrl = 'https://' + supabaseUrl; }
 // @ts-ignore
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+
+if (supabaseUrl.startsWith('sb_publishable_') || !supabaseUrl.includes('.')) {
+  try {
+    const payloadStr = atob(supabaseAnonKey.split('.')[1]);
+    const payload = JSON.parse(payloadStr);
+    if (payload.ref) {
+      supabaseUrl = `https://${payload.ref}.supabase.co`;
+    }
+  } catch(e) {}
+}
+
+if (supabaseUrl && !supabaseUrl.startsWith('http')) { supabaseUrl = 'https://' + supabaseUrl; }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
@@ -15,15 +26,17 @@ export const SupabaseBackend = {
     return (data || []).map(p => ({
       id: p.id,
       title: p.title,
-      category: p.category,
-      badge: p.badge,
+      description: p.description,
       price: p.price,
-      originalPrice: p.original_price || p.originalprice || p.originalPrice,
-      rating: p.rating,
-      reviews: p.reviews,
-      image: p.image,
-      downloadUrl: p.download_url || p.downloadurl || p.downloadUrl,
-      description: p.description
+      originalPrice: p.original_price,
+      image: p.image_url || p.image,
+      deliveryTime: p.delivery_time,
+      // Fallbacks to preserve UI layout/filters if not present in schema
+      category: p.category || 'all',
+      badge: p.badge || '',
+      rating: p.rating || 5.0,
+      reviews: p.reviews || 0,
+      downloadUrl: p.download_url || p.downloadurl || p.downloadUrl || ''
     }));
   },
   getServices: async () => {
