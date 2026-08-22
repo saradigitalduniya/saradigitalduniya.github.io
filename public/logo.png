@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <!-- Outer Arc Blue Gradient -->
+    <linearGradient id="outerBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091E42"/>
+      <stop offset="40%" stop-color="#1E40AF"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+
+    <!-- Outer Arc Orange Gradient -->
+    <linearGradient id="outerOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C2410C"/>
+      <stop offset="50%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+
+    <!-- Sara Text Blue Gradient -->
+    <linearGradient id="saraBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="45%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0F2B5C"/>
+    </linearGradient>
+
+    <!-- DUNIYA Orange 3D Gradient -->
+    <linearGradient id="duniyaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="25%" stop-color="#F97316"/>
+      <stop offset="85%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#991B1B"/>
+    </linearGradient>
+
+    <!-- Crescent Swoosh Gradient -->
+    <linearGradient id="swooshGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Circular White Background -->
+  <circle cx="400" cy="400" r="390" fill="#FFFFFF"/>
+
+  <!-- Outer Ring Gradient Arcs -->
+  <!-- Top/Left Blue Arc -->
+  <path d="M 770 400 A 370 370 0 1 0 400 770" fill="none" stroke="url(#outerBlue)" stroke-width="26" stroke-linecap="round"/>
+  <!-- Bottom/Right Orange Arc -->
+  <path d="M 400 30 A 370 370 0 0 1 770 400" fill="none" stroke="url(#outerOrange)" stroke-width="26" stroke-linecap="round"/>
+
+  <!-- SARA TEXT & BLUE SWOOSH CRESCENT -->
+  <!-- Swoosh under 'Sara' -->
+  <path d="M 110 370 C 130 270 230 170 310 160 C 220 180 150 250 125 375 Z" fill="url(#swooshGrad)" />
+
+  <!-- "Sara" Text in styled 3D Gradient Font -->
+  <g filter="url(#dropShadow)">
+    <text x="390" y="370" text-anchor="middle" font-family="'Signika', 'Trebuchet MS', 'Arial Black', sans-serif" font-weight="900" font-style="italic" font-size="195" fill="url(#saraBlue)" letter-spacing="-3">Sara</text>
+  </g>
+
+  <!-- DIGITAL LINE & TEXT -->
+  <g transform="translate(0, 420)">
+    <!-- Left Accent Line -->
+    <line x1="90" y1="-12" x2="220" y2="-12" stroke="#1D4ED8" stroke-width="3.5" />
+    
+    <!-- DIGITAL Text -->
+    <text x="400" y="0" text-anchor="middle" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="44" fill="#0F172A" letter-spacing="14">DIGITAL</text>
+    
+    <!-- Right Accent Line -->
+    <line x1="580" y1="-12" x2="710" y2="-12" stroke="#1D4ED8" stroke-width="3.5" />
+  </g>
+
+  <!-- DUNIYA MAIN TEXT WITH GLOBE ON 'i' -->
+  <g transform="translate(0, 560)">
+    <!-- Main DUNIYA text -->
+    <text x="400" y="0" text-anchor="middle" font-family="'Impact', 'Arial Black', sans-serif" font-weight="900" font-size="135" fill="url(#duniyaGrad)" letter-spacing="6" filter="url(#dropShadow)">DUNiYA</text>
+
+    <!-- Globe Icon over the 'i' -->
+    <g transform="translate(488, -108)">
+      <circle cx="0" cy="0" r="18" fill="#1D4ED8" stroke="#FFFFFF" stroke-width="2"/>
+      <ellipse cx="0" cy="0" rx="18" ry="7" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#FFFFFF" stroke-width="1.8"/>
+      <line x1="-18" y1="0" x2="18" y2="0" stroke="#FFFFFF" stroke-width="1.8"/>
+    </g>
+  </g>
+
+  <!-- ARCHED DIVIDER UNDER DUNIYA -->
+  <path d="M 170 590 Q 400 610 630 590" fill="none" stroke="#0F172A" stroke-width="2" opacity="0.4"/>
+
+  <!-- 4 SERVICES ICONS ROW UNDER DUNIYA -->
+  <g transform="translate(400, 630)">
+    <!-- 1. Monitor Icon -->
+    <g transform="translate(-170, 0)">
+      <rect x="-18" y="-16" width="36" height="24" rx="3" fill="none" stroke="#1E3A8A" stroke-width="3.5"/>
+      <line x1="-12" y1="2" x2="12" y2="2" stroke="#1E3A8A" stroke-width="2"/>
+      <line x1="0" y1="8" x2="0" y2="15" stroke="#1E3A8A" stroke-width="3.5"/>
+      <line x1="-10" y1="15" x2="10" y2="15" stroke="#1E3A8A" stroke-width="3.5"/>
+    </g>
+
+    <!-- Separator Line 1 -->
+    <line x1="-110" y1="-18" x2="-110" y2="18" stroke="#94A3B8" stroke-width="1.5"/>
+
+    <!-- 2. Pen Nib Icon -->
+    <g transform="translate(-50, 0)">
+      <path d="M 0 -18 L 14 -2 L 8 16 L -8 16 L -14 -2 Z" fill="#EA580C"/>
+      <circle cx="0" cy="-2" r="3" fill="#FFFFFF"/>
+      <line x1="0" y1="-2" x2="0" y2="16" stroke="#FFFFFF" stroke-width="1.5"/>
+    </g>
+
+    <!-- Separator Line 2 -->
+    <line x1="10" y1="-18" x2="10" y2="18" stroke="#94A3B8" stroke-width="1.5"/>
+
+    <!-- 3. Shopping Cart Icon -->
+    <g transform="translate(70, 0)">
+      <path d="M -18 -12 L -12 -12 L -6 8 L 14 8 L 18 -6 L -8 -6" fill="none" stroke="#1E3A8A" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="-3" cy="14" r="3.5" fill="#1E3A8A"/>
+      <circle cx="10" cy="14" r="3.5" fill="#1E3A8A"/>
+    </g>
+
+    <!-- Separator Line 3 -->
+    <line x1="130" y1="-18" x2="130" y2="18" stroke="#94A3B8" stroke-width="1.5"/>
+
+    <!-- 4. Cloud Download Icon -->
+    <g transform="translate(185, 0)">
+      <path d="M -16 6 A 10 10 0 0 1 -6 -8 A 12 12 0 0 1 14 -4 A 9 9 0 0 1 12 8 Z" fill="none" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 0 -2 L 0 12 M -5 7 L 0 12 L 5 7" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- LOWER ARC CURVED TAGLINE TEXT -->
+  <path id="taglinePath" d="M 120 540 A 320 320 0 0 0 680 540" fill="none" />
+  <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="25" fill="#0F172A" letter-spacing="3.5">
+    <textPath href="#taglinePath" startOffset="50%" text-anchor="middle">
+      • A DIGITAL PRODUCT SELL POINT •
+    </textPath>
+  </text>
+</svg>
